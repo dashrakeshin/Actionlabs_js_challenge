@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" >
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <title>Actionlabs Js Interview Challenge</title>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
+	
+</head>
+	<style>
+		.sortorder.reverse:after {
+			content: '\25bc';
+		}
+		.sortorder:after {
+			content: '\25b2';
+		}
+		thead th:first-child{
+			width:7%;
+		}
+		thead th{
+			cursor:pointer;
+		}
+	</style>
+<body>
+	<div class="container">
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped" ng-controller="sortController">
+				<thead>
+					<tr>
+						<th data-ng-click="sortBy('userId')">User Id<span class="sortorder" ng-show="propertyName === 'userId'" ng-class="{reverse: reverse}"></span></th>
+						<th data-ng-click="sortBy('id')">ID<span class="sortorder" ng-show="propertyName === 'id'" ng-class="{reverse: reverse}"></span></th>
+						<th data-ng-click="sortBy('title')">Title<span class="sortorder" ng-show="propertyName === 'title'" ng-class="{reverse: reverse}"></span></th>
+						<th data-ng-click="sortBy('body')">Body<span class="sortorder" ng-show="propertyName === 'body'" ng-class="{reverse: reverse}"></span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="result in results | orderBy:propertyName:reverse">
+						<td data-ng-bind="result.userId"></td>
+						<td data-ng-bind="result.id"></td>
+						<td data-ng-bind="result.title"></td>
+						<td data-ng-bind="result.body"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> 
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="bootstrap.js"></script>
+	<script src="angular-custom.js"></script>
+</body>
+</html>
