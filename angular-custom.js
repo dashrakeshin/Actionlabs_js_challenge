@@ -16,6 +16,5 @@ myApp.controller('sortController', function($http,$scope,$rootScope){
 		$scope.reverse = (propertyName !== null && $scope.propertyName === propertyName)
 			? !$scope.reverse : false;
 		$scope.propertyName = propertyName;
-		$scope.friends = orderBy(friends, $scope.propertyName, $scope.reverse);
 	};
 });
